@@ -1,7 +1,7 @@
 #!/bin/python3
 
-import copy
 from collections import deque
+
 
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     '''
@@ -18,12 +18,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ```
     may give the output
     ```
-    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny', 'boney', 'money']
+    ['stone', 'shone', 'phone', 'phony', 'peony', 'penny', 'benny', 'bonny', 'boney',
+    'money']
     ```
     but the possible outputs are not unique,
     so you may also get the output
     ```
-    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey', 'honey', 'money']
+    ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey',
+    'honey', 'money']
     ```
     (We cannot use doctests here because the outputs are not unique.)
 
@@ -31,7 +33,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     the function returns `None`.
 
     HINT:
-    See <https://github.com/mikeizbicki/cmc-csci046/issues/472> for a discussion about a common memory management bug that causes the generated word ladders to be too long in some cases.
+    See <https://github.com/mikeizbicki/cmc-csci046/issues/472> for a discussion about
+    a common memory management bug that causes the generated word ladders to be too
+    long in some cases.
     '''
     if start_word == end_word:
         return [start_word]
@@ -61,7 +65,6 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     return None
 
 
-
 def verify_word_ladder(ladder):
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
@@ -75,7 +78,7 @@ def verify_word_ladder(ladder):
     if len(ladder) == 0:
         return False
     for i in range(len(ladder) - 1):
-        if not _adjacent(ladder[i], ladder[i+1]):
+        if not _adjacent(ladder[i], ladder[i + 1]):
             return False
     return True
 
